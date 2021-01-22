@@ -4,13 +4,12 @@
 
 #include <PubSubClient.h>
 
-#define WLAN_SSID      "TaveRidge"
-#define WLAN_PASS       "4uXdoggy!"
-//#define WLAN_SSID      "My spy wifi"
-//#define WLAN_PASS       "cactusforall!"
-//#define MQTT_SERVER     "10.0.0.91"  //Local
-#define MQTT_SERVER     "10.0.0.72"                 // URL to the RPi running MQTT
-#define MQTT_SERVERPORT 1883                              // MQTT service port
+#define WLAN_SSID      "PikesPeakHighFi"
+#define WLAN_PASS       "cactuslife43ver"
+
+#define MQTT_SERVER     "127.0.0.72"  //Local
+//#define MQTT_SERVER     "10.0.0.72"                 // URL to the RPi running MQTT
+#define MQTT_SERVERPORT 1883                             // MQTT service port
 #define MQTT_USERNAME   "marctheshark"
 #define MQTT_PASSWORD   "cactusforall"
 
@@ -28,15 +27,15 @@ Adafruit_MQTT_Subscribe led = Adafruit_MQTT_Subscribe( &mqtt, "shark/plant_data/
 /************************* DHT *********************************/
 #include "DHT.h"
 #define DHT_SENSOR_TYPE DHT_TYPE_11
-#define DHTPIN A0
+#define DHTPIN A5
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin( 115200 );
+  Serial.begin(115200);
   dht.begin();
-  /*
+
   Serial.print("Connecting to ");
   Serial.println(WLAN_SSID);
 
@@ -51,7 +50,7 @@ void setup() {
   Serial.println("Trying to connect to: ");
   Serial.println(MQTT_SERVER);
   MQTT_connect();
-  */
+
 }
 
 void loop() {
